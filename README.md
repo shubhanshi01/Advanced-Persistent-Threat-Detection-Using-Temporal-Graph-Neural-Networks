@@ -1,0 +1,2 @@
+# Advanced-Persistent-Threat-Detection-Using-Temporal-Graph-Neural-Networks
+Advanced Persistent Threats (APTs) are sophisticated adversaries to exfiltrate data or cause long-term harm. Traditional detection methods fail to capture the temporal evolution and multi-step tactics used by APT actors.  This project introduces a Temporal Graph Neural Network (TGNN)-based model to detect and classify APT activities. 
