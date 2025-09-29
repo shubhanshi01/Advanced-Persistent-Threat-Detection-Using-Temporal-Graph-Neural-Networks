@@ -1,40 +1,77 @@
-# Advanced-Persistent-Threat-Detection-Using-Temporal-Graph-Neural-Networks
-This project presents an advanced machine learning solution to detect Advanced Persistent Threats (APTs) using Temporal Graph Neural Networks (GNNs). Using the DAPT 2020 dataset, which contains network flow records captured during simulated attack scenarios, the system learns temporal patterns of malicious behaviors.
+project:
+  name: "Advanced Persistent Threat (APT) Detection with Graph Neural Networks"
+  description: >
+    Jupyter Notebook implementation of APT detection using Graph Neural Networks (GNNs),
+    specifically a lightweight Graph Attention Network (GAT). The notebook demonstrates
+    preprocessing, graph construction, model training, evaluation, explainability,
+    and visualization.
 
-This repository contains code and experiments for detecting Advanced Persistent Threats (APTs) using Temporal Graph Neural Networks. The model captures time-evolving relationships between hosts and network activities to classify malicious stages with higher precision.
+features:
+  - Data preprocessing and graph construction from PCA-transformed input
+  - Lightweight GAT model for classifying attack patterns
+  - Training, validation, and testing with performance tracking
+  - Metrics: accuracy, confusion matrix, classification report
+  - Graph-level and feature-level explainability
+  - Subgraph visualization with edge importance
+  - Model saving and loading with metadata
 
-## Dataset
+repository_contents:
+  - apt_gnn_detection.ipynb: "Main Jupyter Notebook"
+  - README.md: "Project documentation"
 
-**Source:** [Kaggle - DAPT 2020](https://www.kaggle.com/datasets/sowmyamyneni/dapt2020)
+setup:
+  clone:
+    - command: git clone https://github.com/your-username/apt-gnn-detection.git
+    - command: cd apt-gnn-detection
 
-### Data Includes:
-- Timestamped bidirectional flows
-- Source & destination IPs
-- Protocol, port, byte, and packet counts
-- Ground truth: `Activity` (e.g. Scan, Injection, Exfiltration), `Stage` (Reconnaissance, Lateral Movement, etc.)
+  environment:
+    recommended: "Use a Python virtual environment"
+    linux_mac: "python -m venv venv && source venv/bin/activate"
+    windows: "python -m venv venv && venv\\Scripts\\activate"
 
-##  Model Overview
+  installation:
+    pip:
+      - torch
+      - torchvision
+      - torchaudio
+      - torch-geometric
+      - scikit-learn
+      - pandas
+      - numpy
+      - matplotlib
+      - seaborn
+      - networkx
+      - jupyter
 
-- **Temporal Graph Construction**:
-  - Nodes: Host IPs
-  - Edges: Flows between hosts
-  - Edge Features: Time delta, packet size, flow duration
-- **Temporal GNN Architecture**:
-  - GCN or GAT with time-aware edge encoding
-  - Node/Edge classification layers for attack type & stage
+  run_notebook:
+    - command: jupyter notebook apt_gnn_detection.ipynb
 
-##  Key Features
+example_results:
+  dataset: "~3000 nodes, ~15k edges"
+  model: "Lightweight GAT (~200k parameters)"
+  test_accuracy: "~0.93 (depends on dataset)"
+  outputs:
+    - Graph structure visualizations
+    - Degree distribution plots
+    - Training/validation loss and accuracy curves
+    - Confusion matrices (raw and normalized)
+    - Feature importance heatmaps
+    - Subgraph explanations with edge importance
 
--  Time-aware modeling of flow sequences
--  Classifies both attack **activity** and **stage**
--  Handles missing and infinite values robustly
--  Visualizes APT attack patterns over time
+requirements:
+  python: ">=3.8"
+  libraries:
+    - torch
+    - torch-geometric
+    - scikit-learn
+    - pandas
+    - numpy
+    - matplotlib
+    - seaborn
+    - networkx
+    - jupyter
 
-## Visualisation 
-#Apt attack detection graph
-
-![image](https://github.com/user-attachments/assets/086ad661-ed07-482f-b8d4-3127c245e9da)
-
-# Compare predicted vs. ground truth on test nodes only
-![image](https://github.com/user-attachments/assets/295cdd5e-0f4d-4d0a-8861-ec5569c99cdd)
-
+license:
+  type: "MIT"
+  year: 2025
+  author: "Your Name"
